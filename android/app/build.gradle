@@ -85,6 +85,8 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -105,6 +107,8 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    
+
 }
 
 dependencies {
@@ -115,5 +119,19 @@ dependencies {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
+    }
+    
+    // Fix for duplicate classes conflict
+    constraints {
+        implementation("androidx.core:core:1.9.0") {
+            because "react-native-push-notification requires this version"
+        }
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core:1.9.0'
+        exclude group: 'com.android.support', module: 'support-compat'
     }
 }

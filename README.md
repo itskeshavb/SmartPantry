@@ -1,97 +1,141 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# SmartPantry - Food Expiration Tracker
 
-# Getting Started
+A React Native mobile application that helps you track food expiration dates, reduce waste, and get recipe suggestions based on your pantry items.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- 🍎 **Food Item Management**: Add, edit, and delete food items with expiration dates
+- 📅 **Expiration Tracking**: Get alerts for items expiring soon
+- 🍳 **Recipe Suggestions**: Get recipe recommendations based on your expiring ingredients
+- 📊 **Waste Analytics**: Track your food waste and potential savings
+- 🎨 **Dark Theme**: Beautiful dark UI design
+- 📱 **Cross-Platform**: Works on both iOS and Android
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Screenshots
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+*Add screenshots here once you have them*
 
-```sh
-# Using npm
-npm start
+## Tech Stack
 
-# OR using Yarn
-yarn start
+- **React Native**: 0.81.0
+- **TypeScript**: For type safety
+- **React Native Paper**: UI components
+- **Date-fns**: Date manipulation
+- **Axios**: HTTP client for API calls
+- **AsyncStorage**: Local data persistence
+
+## Installation
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- React Native CLI
+- Android Studio (for Android development)
+- Xcode (for iOS development, macOS only)
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/smartpantry.git
+   cd smartpantry
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **iOS Setup** (macOS only)
+   ```bash
+   cd ios
+   pod install
+   cd ..
+   ```
+
+4. **Run the app**
+   ```bash
+   # For Android
+   npx react-native run-android
+   
+   # For iOS (macOS only)
+   npx react-native run-ios
+   ```
+
+## Project Structure
+
+```
+src/
+├── screens/           # Screen components
+│   ├── HomeScreen.tsx
+│   ├── AddItemScreen.tsx
+│   ├── PantryViewScreen.tsx
+│   ├── RecipeSuggestionsScreen.tsx
+│   └── ProfileScreen.tsx
+├── services/          # API and notification services
+│   ├── api.ts
+│   └── notificationService.ts
+├── types/            # TypeScript type definitions
+│   └── index.ts
+└── components/       # Reusable components
 ```
 
-## Step 2: Build and run your app
+## Features in Detail
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### Home Screen
+- Overview of expiring items
+- Food waste score
+- Quick access to add new items
 
-### Android
+### Pantry View
+- Complete inventory management
+- Category-based filtering
+- Search functionality
+- Expiration status tracking
 
-```sh
-# Using npm
-npm run android
+### Recipe Suggestions
+- AI-powered recipe recommendations
+- Based on expiring ingredients
+- Difficulty and time filtering
 
-# OR using Yarn
-yarn android
-```
+### Profile
+- User settings and preferences
+- Notification management
+- Usage statistics
 
-### iOS
+## API Integration
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+The app is designed to work with a backend API for full functionality. Currently, it gracefully handles cases where the backend is not available by providing mock data.
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### Backend Features (when available)
+- User authentication
+- Food item CRUD operations
+- Recipe suggestions
+- Waste analytics
+- Push notifications
 
-```sh
-bundle install
-```
+## Contributing
 
-Then, and every time you update your native dependencies, run:
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-```sh
-bundle exec pod install
-```
+## License
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```sh
-# Using npm
-npm run ios
+## Acknowledgments
 
-# OR using Yarn
-yarn ios
-```
+- React Native community
+- React Native Paper for UI components
+- Date-fns for date manipulation utilities
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## Support
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+If you encounter any issues or have questions, please open an issue on GitHub.
 
-## Step 3: Modify your app
+---
 
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Made with ❤️ for reducing food waste
