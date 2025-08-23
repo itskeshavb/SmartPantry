@@ -33,6 +33,11 @@ class Settings(BaseSettings):
     azure_storage_connection_string: str = "your-storage-connection-string"
     azure_storage_container: str = "food-images"
     
+    # Azure AD B2C Authentication
+    azure_b2c_tenant_name: str = "your-b2c-tenant-name"
+    azure_b2c_client_id: str = "your-b2c-client-id"
+    azure_b2c_policy_name: str = "B2C_1_signupsignin"
+    
     # External APIs
     spoonacular_api_key: str = "your-spoonacular-api-key"
     

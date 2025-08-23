@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from typing import List, Optional
 import logging
 import json
+from datetime import datetime
 
 from azure.mgmt.notificationhubs import NotificationHubsManagementClient
 from azure.identity import DefaultAzureCredential
@@ -14,8 +15,14 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 
 # Initialize Azure Notification Hubs client
-# Note: In production, you'd use proper Azure credentials
-notification_client = None  # Placeholder for Azure Notification Hubs client
+from azure.mgmt.notificationhubs import NotificationHubsManagementClient
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.notificationhubs.models import NotificationHubResource
+import json
+
+# For production, you'd use proper Azure credentials
+# For now, we'll use a simplified approach with direct HTTP calls
+notification_client = None  # Will be initialized when needed
 
 @router.post("/register")
 async def register_device_token(
@@ -25,16 +32,24 @@ async def register_device_token(
 ):
     """Register a device token for push notifications"""
     try:
+        # Store the device token in your database (you can extend this)
+        logger.info(f"Registering device token for user {current_user.id}: {token} ({platform})")
+        
         # In a real implementation, you would:
         # 1. Store the device token in your database
-        # 2. Register it with Azure Notification Hubs
+        # 2. Register it with Azure Notification Hubs using the Azure SDK
         
-        # Placeholder implementation
-        logger.info(f"Registering device token for user {current_user.id}: {token} ({platform})")
+        # For now, we'll simulate successful registration
+        # You can extend this to use the actual Azure Notification Hubs SDK
         
         return {
             "success": True,
-            "message": "Device token registered successfully"
+            "message": "Device token registered successfully",
+            "data": {
+                "user_id": current_user.id,
+                "platform": platform,
+                "token": token[:20] + "..."  # Show partial token for security
+            }
         }
         
     except Exception as e:
@@ -51,14 +66,24 @@ async def send_notification(
     """Send a push notification to users"""
     try:
         # In a real implementation, you would:
-        # 1. Get device tokens for the specified users
+        # 1. Get device tokens for the specified users from your database
         # 2. Send notifications via Azure Notification Hubs
         
         logger.info(f"Sending notification: {title} - {message}")
         
+        # Simulate notification sending
+        # You can extend this to use the actual Azure Notification Hubs SDK
+        notification_data = {
+            "title": title,
+            "message": message,
+            "user_ids": user_ids or [current_user.id],
+            "timestamp": datetime.utcnow().isoformat()
+        }
+        
         return {
             "success": True,
-            "message": "Notification sent successfully"
+            "message": "Notification sent successfully",
+            "data": notification_data
         }
         
     except Exception as e:
@@ -157,6 +182,7 @@ def get_device_tokens_for_user(user_id: str) -> List[dict]:
         {"token": "placeholder_token_1", "platform": "ios"},
         {"token": "placeholder_token_2", "platform": "android"}
     ]
+
 
 
 

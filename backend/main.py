@@ -6,10 +6,10 @@ import uvicorn
 from dotenv import load_dotenv
 import os
 
-from app.api import auth, food_items, ocr, recipes, analytics, notifications, users, household
+from app.api import auth, food_items, ocr, recipes, analytics, notifications, users, household, storage
 from app.core.config import settings
 from app.core.database import init_database
-from app.core.auth import get_current_user
+from app.core.auth_b2c import get_current_user
 
 # Load environment variables
 load_dotenv()
@@ -53,6 +53,7 @@ app.include_router(ocr.router, prefix="/ocr", tags=["OCR"])
 app.include_router(recipes.router, prefix="/recipes", tags=["Recipes"])
 app.include_router(analytics.router, prefix="/analytics", tags=["Analytics"])
 app.include_router(notifications.router, prefix="/notifications", tags=["Notifications"])
+app.include_router(storage.router, prefix="/storage", tags=["Storage"])
 app.include_router(users.router, prefix="/users", tags=["Users"])
 app.include_router(household.router, prefix="/household", tags=["Household"])
 
