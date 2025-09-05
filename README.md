@@ -2,6 +2,13 @@
 
 A complete full-stack application powered by **Microsoft Azure** that helps you track food expiration dates, reduce waste, and get recipe suggestions based on your pantry items. Built with React Native + TypeScript frontend and FastAPI backend, fully integrated with Azure cloud services.
 
+## Images
+<img width="346" height="773" alt="Screenshot 2025-09-05 173115" src="https://github.com/user-attachments/assets/03890d28-a6b4-45d2-ae16-a7c54e29e76b" />
+<img width="356" height="793" alt="Screenshot 2025-09-05 173002" src="https://github.com/user-attachments/assets/5e46b063-d2e7-4425-a52d-e48e32992db9" />
+<img width="359" height="791" alt="Screenshot 2025-09-05 173035" src="https://github.com/user-attachments/assets/3778b1c0-63ba-4880-a634-fd2c85a945d0" />
+<img width="343" height="803" alt="Screenshot 2025-09-05 173044" src="https://github.com/user-attachments/assets/c2c44a9d-d872-48e9-b07b-a07c1114857f" />
+<img width="343" height="793" alt="Screenshot 2025-09-05 173057" src="https://github.com/user-attachments/assets/0f130286-cc39-4556-89c1-85f811252eaf" />
+
 ## 🏗️ Project Structure
 
 ```
